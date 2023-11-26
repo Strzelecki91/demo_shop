@@ -3,6 +3,7 @@ export const LeftSide = () => {
     <div>
       <h2>Navigation List</h2>
       <div>BoxList</div>
+      <div>BoxList</div>
     </div>
   );
 };

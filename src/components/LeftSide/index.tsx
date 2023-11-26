@@ -1,7 +1,8 @@
 export const LeftSide = () => {
   return (
     <div>
-      <div>Navigation List</div>
+      <h2>Navigation List</h2>
+      <div>BoxList</div>
     </div>
   );
 };

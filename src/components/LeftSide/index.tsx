@@ -1,3 +1,7 @@
 export const LeftSide = () => {
-  return <div></div>;
+  return (
+    <div>
+      <div>Navigation List</div>
+    </div>
+  );
 };

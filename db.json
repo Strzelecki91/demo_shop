@@ -1,0 +1,64 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
+    },
+    {
+      "id": 1,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
+    },
+    {
+      "id": 1,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
+    },
+    {
+      "id": 1,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
+    },
+    {
+      "id": 1,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
+    },
+    {
+      "id": 1,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
+    }
+  ]
+}

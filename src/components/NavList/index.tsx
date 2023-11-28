@@ -73,13 +73,8 @@ export const NavList = () => {
             </MDBNavbarItem>
 
             <MDBNavbarItem>
-              <MDBNavbarLink
-                disabled
-                href="#"
-                tabIndex={-1}
-                aria-disabled="true"
-              >
-                Disabled
+              <MDBNavbarLink href="/login" tabIndex={-1} aria-disabled="true">
+                Login
               </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>

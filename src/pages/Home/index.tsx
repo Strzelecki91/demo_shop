@@ -8,7 +8,6 @@ import { MDBRow, MDBCol } from "mdb-react-ui-kit";
 export const Home = () => {
   return (
     <div>
-      <Header />
       <div>
         <NavList />
         <MDBRow className="hero">

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import { Header } from "./components/Header";
 import { LeftSide } from "./components/LeftSide";
@@ -8,12 +8,18 @@ import { Footer } from "./components/Footer";
 import { ProductsList } from "./components/ProductsList";
 import { ProductProvider } from "./components/context/ProductContext";
 import { Home } from "./pages/Home";
+import { LoginPage } from "./pages/LoginPage";
+import { SignUp } from "./pages/Home/SignUp";
 
 function App() {
   return (
     <ProductProvider>
       <div className="App">
-        <Home />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/singUp" element={<SignUp />} />
+        </Routes>
       </div>
     </ProductProvider>
   );

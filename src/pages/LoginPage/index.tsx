@@ -10,6 +10,7 @@ import {
 import { Header } from "../../components/Header";
 import { NavList } from "../../components/NavList";
 import "./loginPage.scss";
+import { Footer } from "../../components/Footer";
 export const LoginPage = () => {
   return (
     <div>
@@ -72,6 +73,7 @@ export const LoginPage = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

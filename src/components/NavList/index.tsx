@@ -51,7 +51,7 @@ export const NavList = () => {
         <MDBCollapse navbar open={openBasic}>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
             <MDBNavbarItem>
-              <MDBNavbarLink active aria-current="page" href="#">
+              <MDBNavbarLink active aria-current="page" href="/">
                 Home
               </MDBNavbarLink>
             </MDBNavbarItem>
@@ -73,9 +73,10 @@ export const NavList = () => {
             </MDBNavbarItem>
 
             <MDBNavbarItem>
-              <MDBNavbarLink href="/login" tabIndex={-1} aria-disabled="true">
-                Login
-              </MDBNavbarLink>
+              <MDBNavbarLink href="/login">Login</MDBNavbarLink>
+            </MDBNavbarItem>
+            <MDBNavbarItem>
+              <MDBNavbarLink href="/signUp">Sign up</MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
           <div className="width_search_input">

@@ -8,6 +8,7 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 import { NavList } from "../../../components/NavList";
+import { Footer } from "../../../components/Footer";
 export const SignUp = () => {
   return (
     <div>
@@ -72,6 +73,7 @@ export const SignUp = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

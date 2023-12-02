@@ -44,6 +44,12 @@ export const ProductCard = ({
         </div>
         <p>Title: {title}</p>
         <p>Price: {price}</p>
+        <MDBBtn color="light" rippleColor="dark">
+          Details
+        </MDBBtn>
+        <MDBBtn color="light" rippleColor="dark">
+          Add to Cart
+        </MDBBtn>
       </div>
     </>
   );

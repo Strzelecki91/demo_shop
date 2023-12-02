@@ -7,8 +7,8 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import { NavList } from "../../../components/NavList";
-import { Footer } from "../../../components/Footer";
+import { NavList } from "../../components/NavList";
+import { Footer } from "../../components/Footer";
 export const SignUp = () => {
   return (
     <div>

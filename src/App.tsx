@@ -9,7 +9,7 @@ import { ProductsList } from "./components/ProductsList";
 import { ProductProvider } from "./components/context/ProductContext";
 import { Home } from "./pages/Home";
 import { LoginPage } from "./pages/LoginPage";
-import { SignUp } from "./pages/Home/SignUp";
+import { SignUp } from "./pages/SignUp";
 
 function App() {
   return (

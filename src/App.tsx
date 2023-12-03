@@ -10,18 +10,21 @@ import { ProductProvider } from "./components/context/ProductContext";
 import { Home } from "./pages/Home";
 import { LoginPage } from "./pages/LoginPage";
 import { SignUp } from "./pages/SignUp";
+import { UserProvider } from "./components/context/UserContext";
 
 function App() {
   return (
-    <ProductProvider>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signUp" element={<SignUp />} />
-        </Routes>
-      </div>
-    </ProductProvider>
+    <UserProvider>
+      <ProductProvider>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signUp" element={<SignUp />} />
+          </Routes>
+        </div>
+      </ProductProvider>
+    </UserProvider>
   );
 }
 

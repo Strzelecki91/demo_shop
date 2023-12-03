@@ -60,5 +60,35 @@
       "category": "smartphones",
       "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Kowalski",
+      "lastName": "John",
+      "email": "example@test.com",
+      "password": "Kotek12-"
+    },
+    {
+      "firstName": "Kacper",
+      "lastName": "Strzelecki",
+      "email": "valandil16@gmail.com",
+      "password": "krolik20",
+      "id": 2
+    },
+    {
+      "firstName": "Kacper",
+      "lastName": "Strzelecki",
+      "email": "valandil16@gmail.com",
+      "password": "krolik20",
+      "id": 3
+    },
+    {
+      "firstName": "Tyler",
+      "lastName": "Walrod",
+      "email": "Example@job.com",
+      "password": "asddas",
+      "id": 4
+    }
   ]
 }

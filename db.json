@@ -89,6 +89,13 @@
       "email": "Example@job.com",
       "password": "asddas",
       "id": 4
+    },
+    {
+      "firstName": "Marcin",
+      "lastName": "Wolski",
+      "email": "Example@job.com",
+      "password": "kot",
+      "id": 5
     }
   ]
 }

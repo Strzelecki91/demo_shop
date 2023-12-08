@@ -11,7 +11,7 @@
       "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
     },
     {
-      "id": 1,
+      "id": 2,
       "title": "iPhone 9",
       "description": "An apple mobile which is nothing like apple",
       "price": 549,
@@ -21,7 +21,7 @@
       "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
     },
     {
-      "id": 1,
+      "id": 3,
       "title": "iPhone 9",
       "description": "An apple mobile which is nothing like apple",
       "price": 549,
@@ -31,7 +31,7 @@
       "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
     },
     {
-      "id": 1,
+      "id": 4,
       "title": "iPhone 9",
       "description": "An apple mobile which is nothing like apple",
       "price": 549,
@@ -41,7 +41,7 @@
       "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
     },
     {
-      "id": 1,
+      "id": 5,
       "title": "iPhone 9",
       "description": "An apple mobile which is nothing like apple",
       "price": 549,
@@ -51,7 +51,7 @@
       "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
     },
     {
-      "id": 1,
+      "id": 6,
       "title": "iPhone 9",
       "description": "An apple mobile which is nothing like apple",
       "price": 549,
@@ -68,34 +68,6 @@
       "lastName": "John",
       "email": "example@test.com",
       "password": "Kotek12-"
-    },
-    {
-      "firstName": "Kacper",
-      "lastName": "Strzelecki",
-      "email": "valandil16@gmail.com",
-      "password": "krolik20",
-      "id": 2
-    },
-    {
-      "firstName": "Kacper",
-      "lastName": "Strzelecki",
-      "email": "valandil16@gmail.com",
-      "password": "krolik20",
-      "id": 3
-    },
-    {
-      "firstName": "Tyler",
-      "lastName": "Walrod",
-      "email": "Example@job.com",
-      "password": "asddas",
-      "id": 4
-    },
-    {
-      "firstName": "Marcin",
-      "lastName": "Wolski",
-      "email": "Example@job.com",
-      "password": "kot",
-      "id": 5
     }
   ]
 }

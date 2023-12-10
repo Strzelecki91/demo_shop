@@ -98,10 +98,10 @@ export const SignUp = () => {
                 valuemax={regExps.length}
               />
             </MDBProgress>
-            {/* <p>
+            <p>
               complexity{complexity} reg {regExps.length}
             </p>
-            <progress value={complexity} max={regExps.length}></progress> */}
+            <progress value={complexity} max={regExps.length}></progress>
             <MDBCheckbox
               wrapperClass="d-flex justify-content-center mb-4"
               id="form3Example5"

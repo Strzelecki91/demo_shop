@@ -17,6 +17,7 @@ type UsersContextProps = {
   newUserInputValue: usersType;
   firstNameError: string;
   lastNameError: string;
+  passwordError: string;
   complexity: number;
   regExps: RegExp[];
   addUser: () => Promise<any>;
@@ -46,6 +47,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     lastNameError,
     complexity,
     regExps,
+    passwordError,
     addUser,
     handleNewUser,
     handleInputValue,
@@ -63,6 +65,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         lastNameError,
         complexity,
         regExps,
+        passwordError,
         addUser,
         handleNewUser,
         handleInputValue,

@@ -15,6 +15,10 @@ type UsersContextProps = {
   emailError: string;
   loginError: string;
   newUserInputValue: usersType;
+  loginInputValue: {
+    email: string;
+    password: string;
+  };
   firstNameError: string;
   lastNameError: string;
   passwordError: string;
@@ -28,6 +32,9 @@ type UsersContextProps = {
   ) => Promise<void>;
   setUsers: (value: React.SetStateAction<usersType[]>) => void;
   handleProgress: (event: KeyboardEvent<HTMLInputElement>) => void;
+  handleLogin: (login: string, password: string) => Promise<void>;
+  handleLogout: () => void;
+  // loginUser: (login: string, password: string) => Promise<void>;
 };
 
 type UserProviderProps = {
@@ -48,11 +55,15 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     complexity,
     regExps,
     passwordError,
+    loginInputValue,
     addUser,
     handleNewUser,
     handleInputValue,
     setUsers,
     handleProgress,
+    handleLogin,
+    handleLogout,
+    // loginUser,
   } = useUsers();
   return (
     <UserContext.Provider
@@ -66,11 +77,15 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         complexity,
         regExps,
         passwordError,
+        loginInputValue,
         addUser,
         handleNewUser,
         handleInputValue,
         setUsers,
         handleProgress,
+        handleLogin,
+        handleLogout,
+        // loginUser,
       }}
     >
       {children}

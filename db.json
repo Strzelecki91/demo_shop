@@ -1,4 +1,7 @@
 {
+  "config": {
+    "auth": "/auth"
+  },
   "products": [
     {
       "id": 1,
@@ -61,6 +64,7 @@
       "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
     }
   ],
+
   "users": [
     {
       "id": 1,
@@ -69,6 +73,46 @@
       "login": "Johan",
       "email": "example@test.com",
       "password": "Kotek12-"
+    },
+    {
+      "firstName": "asdasd",
+      "lastName": "asasd",
+      "login": "asdasd",
+      "email": "asdasdasdasd@wp.pl",
+      "password": "asda2wX!",
+      "id": 2
+    },
+    {
+      "firstName": "Kacper",
+      "lastName": "Strzala",
+      "login": "Strzla",
+      "email": "strzla@gmail.vom",
+      "password": "Kotek12-",
+      "id": 3
+    },
+    {
+      "firstName": "Sheldonyu",
+      "lastName": "sdfgsdfg",
+      "login": "Valandil",
+      "email": "asdasd@wp.pl",
+      "password": "Kotek12-",
+      "id": 4
+    },
+    {
+      "firstName": "Sheldonyu",
+      "lastName": "Strzelecki",
+      "login": "Valandill",
+      "email": "exfdgdgample@test.com",
+      "password": "Kotek12-",
+      "id": 5
+    },
+    {
+      "email": "exambfcvple@test.com",
+      "password": "$2a$10$sVqucLtw8w5WRKKwX8Q8sezneL7ZebiGx/9kt2dCPgS58i22BOt2O",
+      "firstName": "Kacper",
+      "lastName": "Strzelecki",
+      "login": "Valandilll",
+      "id": 6
     }
   ]
 }

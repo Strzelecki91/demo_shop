@@ -15,6 +15,10 @@ type useUserData = {
   lastNameError: string;
   passwordError: string;
   newUserInputValue: usersType;
+  loginInputValue: {
+    email: string;
+    password: string;
+  };
   complexity: number;
   regExps: RegExp[];
   addUser: () => Promise<any>;
@@ -25,17 +29,25 @@ type useUserData = {
   handleInputValue: (event: ChangeEvent<HTMLInputElement>) => void;
   setUsers: (value: React.SetStateAction<usersType[]>) => void;
   handleProgress: (event: KeyboardEvent<HTMLInputElement>) => void;
+  handleLogin: (login: string, password: string) => Promise<void>;
+  handleLogout: () => void;
+  // loginUser: (login: string, password: string) => Promise<void>;
 };
 
 export const useUsers = (): useUserData => {
   const [users, setUsers] = useState<usersType[]>([]);
   const [countUsers, setCountUsers] = useState(users.length);
   const URL = "http://localhost:5000/users";
+  const URL_Login = "http://localhost:5000/auth/login";
   const [newUserInputValue, setNewUserInputValue] = useState<usersType>({
     id: countUsers,
     firstName: "",
     lastName: "",
     login: "",
+    email: "",
+    password: "",
+  });
+  const [loginInputValue, setLoginINputValue] = useState({
     email: "",
     password: "",
   });
@@ -45,38 +57,21 @@ export const useUsers = (): useUserData => {
   const [lastNameError, setLastNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [complexity, setComplexity] = useState(0);
-
+  const regExps = [/[a-z]/, /[A-Z]/, /[0-9]/, /.{8}/, /[!-//:-@[-`{-ÿ]/];
   const { firstName, lastName, login, email, password } = newUserInputValue;
 
-  const validateEmail = (email: string) => {
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if (!emailPattern.test(newUserInputValue.email)) {
-      setEmailError("Please enter a correct email address.");
-      return false;
-    } else {
-      setEmailError("");
-      return true;
-    }
+  const [token, setToken] = useState<string | null>(null);
+  const [user, setUser] = useState<any | null>(null);
+
+  const saveTokenToLocalStorage = (token: any) => {
+    localStorage.setItem("accessToken", token);
   };
-  const validateFirstName = (firstName: string) => {
-    const firstNamePattern = /^[a-zA-ZąĄćĆęĘóÓłŁśŚźŹżŻńŃ0-9.,/”“"'&() -"\n"]*$/;
-    if (!firstNamePattern.test(newUserInputValue.firstName)) {
-      setFirstNameError("Please enter a correct name.");
-      return false;
-    } else {
-      setFirstNameError("");
-      return true;
-    }
+  const getTokenFromLocalStorage = () => {
+    return localStorage.getItem("accessToken");
   };
-  const validateLastName = (firstName: string) => {
-    const lastNamePattern = /^[a-zA-ZąĄćĆęĘóÓłŁśŚźŹżŻńŃ0-9.,/”“"'&() -"\n"]*$/;
-    if (!lastNamePattern.test(newUserInputValue.lastName)) {
-      setLastNameError("Please enter a correct last name");
-      return false;
-    } else {
-      setLastNameError("");
-      return true;
-    }
+
+  const removeTokenFromLocalStorage = () => {
+    return localStorage.removeItem("accessToken");
   };
 
   const getUser = async () => {
@@ -115,6 +110,37 @@ export const useUsers = (): useUserData => {
     }
   };
 
+  const validateEmail = (email: string) => {
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailPattern.test(newUserInputValue.email)) {
+      setEmailError("Please enter a correct email address.");
+      return false;
+    } else {
+      setEmailError("");
+      return true;
+    }
+  };
+  const validateFirstName = (firstName: string) => {
+    const firstNamePattern = /^[a-zA-ZąĄćĆęĘóÓłŁśŚźŹżŻńŃ0-9.,/”“"'&() -"\n"]*$/;
+    if (!firstNamePattern.test(newUserInputValue.firstName)) {
+      setFirstNameError("Please enter a correct name.");
+      return false;
+    } else {
+      setFirstNameError("");
+      return true;
+    }
+  };
+  const validateLastName = (firstName: string) => {
+    const lastNamePattern = /^[a-zA-ZąĄćĆęĘóÓłŁśŚźŹżŻńŃ0-9.,/”“"'&() -"\n"]*$/;
+    if (!lastNamePattern.test(newUserInputValue.lastName)) {
+      setLastNameError("Please enter a correct last name");
+      return false;
+    } else {
+      setLastNameError("");
+      return true;
+    }
+  };
+
   const checkIfEmailExist = async (email: string) => {
     try {
       const response = await fetch(`${URL}`);
@@ -144,7 +170,7 @@ export const useUsers = (): useUserData => {
     }
     return true;
   };
-  const regExps = [/[a-z]/, /[A-Z]/, /[0-9]/, /.{8}/, /[!-//:-@[-`{-ÿ]/];
+
   const calculateComplexityPassword = (password: string) => {
     let complexity = 1;
 
@@ -158,13 +184,12 @@ export const useUsers = (): useUserData => {
       max: regExps.length,
     };
   };
-  console.log(regExps.length, complexity, " długosć tablicy hasła");
 
   const handleProgress = (event: KeyboardEvent<HTMLInputElement>) => {
     event.preventDefault();
     calculateComplexityPassword(password);
   };
-  // const checkPasswordStregth = (password) => {};
+
   const handleNewUser = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const emailExist = await checkIfEmailExist(newUserInputValue.email);
@@ -229,6 +254,61 @@ export const useUsers = (): useUserData => {
     });
   };
 
+  // const loginUser = async (email: string, password: string) => {
+  //   try {
+  //     const response = await fetch(`${URL_Login}`, {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({
+  //         email: email,
+  //         password: password,
+  //       }),
+  //     });
+  //     if (!response.ok) throw new Error("Something goes wrong with login");
+  //     const data = await response.json();
+
+  //     console.log("Login successfull", data.email);
+  //     // setToken(data.accessToken);
+  //     // saveTokenToLocalStorage(user.accessToken);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // loginUser("example@test.pl", "Kotek12-");
+
+  const handleLogin = async (email: string, password: string) => {
+    // const user = await loginUser(email, password);
+    // console.log(user, "setuser handle login");
+    // setUser(user);
+    try {
+      const response = await fetch(`${URL_Login}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+      if (!response.ok) throw new Error("Something goes wrong with login");
+      const data = await response.json();
+
+      console.log("Login successfull", data.email);
+      setToken(data.accessToken);
+      setUser(user);
+      saveTokenToLocalStorage(user.accessToken);
+    } catch (error) {
+      console.error("Error during login. Please try again.", error);
+      throw new Error("Invalid credentials. Please try again.");
+    }
+  };
+
+  const handleLogout = () => {
+    removeTokenFromLocalStorage();
+    setToken(null);
+    setUser(null);
+    window.location.reload();
+  };
+
   useEffect(() => {
     getUser();
   }, []);
@@ -242,10 +322,14 @@ export const useUsers = (): useUserData => {
     passwordError,
     complexity,
     regExps,
+    loginInputValue,
     handleNewUser,
     handleInputValue,
     addUser,
     setUsers,
     handleProgress,
+    handleLogin,
+    handleLogout,
+    // loginUser,
   };
 };

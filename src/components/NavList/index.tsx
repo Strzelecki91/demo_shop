@@ -80,7 +80,7 @@ export const NavList = () => {
                 <MDBNavbarLink href="/login">Login</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="/signUp">Sign up</MDBNavbarLink>
+                <MDBNavbarLink href="/register">Sign up</MDBNavbarLink>
               </MDBNavbarItem>
               {/* <div className="width_search_input">
                 <form className="d-flex input-group w-auto">

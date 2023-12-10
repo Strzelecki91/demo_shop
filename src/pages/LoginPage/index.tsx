@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent, useContext, useState } from "react";
 import {
   MDBInput,
   MDBCol,
@@ -11,24 +11,56 @@ import { Header } from "../../components/Header";
 import { NavList } from "../../components/NavList";
 import "./loginPage.scss";
 import { Footer } from "../../components/Footer";
-export const LoginPage = () => {
+import { UserContext } from "../../components/context/UserContext";
+import { useNavigate } from "react-router-dom";
+export const LoginPage: React.FC = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
+  const { handleLogin } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      await handleLogin(email, password);
+      // navigate("/");
+      // window.location.reload();
+      console.log("zalogowano", email, password);
+    } catch (error: any) {
+      if (error.response && error.response.status === 401) {
+        setError("An error occurred. Please try again.");
+      } else {
+        console.error("Server error", error.message);
+        setError("Wrong login or password");
+      }
+    }
+  };
+
   return (
     <div>
       <NavList />
       <div className="box">
+        <p>{error}</p>
         <div className="loginBox">
-          <form>
+          <form onSubmit={handleSubmit}>
             <MDBInput
               className="mb-4"
               type="email"
               id="form2Example1"
-              label="Email address"
+              label="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
+            <p>{email}</p>
+            <p>{password}</p>
             <MDBInput
               className="mb-4"
               type="password"
               id="form2Example2"
               label="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
 
             <MDBRow className="mb-4">

@@ -1,4 +1,4 @@
-import React from "react";
+import { KeyboardEvent } from "react";
 import {
   MDBInput,
   MDBCol,
@@ -6,15 +6,29 @@ import {
   MDBCheckbox,
   MDBBtn,
   MDBIcon,
+  MDBProgress,
+  MDBProgressBar,
 } from "mdb-react-ui-kit";
 import { NavList } from "../../components/NavList";
 import { Footer } from "../../components/Footer";
 import { useContext } from "react";
 import { UserContext } from "../../components/context/UserContext";
 export const SignUp = () => {
-  const { newUserInputValue, handleNewUser, handleInputValue } =
-    useContext(UserContext);
-  const { id, firstName, lastName, email, password } = newUserInputValue;
+  const {
+    newUserInputValue,
+    emailError,
+    loginError,
+    firstNameError,
+    lastNameError,
+    complexity,
+    regExps,
+    handleNewUser,
+    handleInputValue,
+    handleProgress,
+  } = useContext(UserContext);
+  const { id, firstName, lastName, login, email, password } = newUserInputValue;
+  console.log(regExps.length, complexity, " długosć tablicy hasła sing up");
+
   return (
     <div>
       <NavList />
@@ -48,6 +62,15 @@ export const SignUp = () => {
             </MDBRow>
             <MDBInput
               className="mb-4"
+              type="text"
+              name="login"
+              label="Login"
+              value={login}
+              placeholder="Enter login"
+              onChange={handleInputValue}
+            />
+            <MDBInput
+              className="mb-4"
               type="email"
               name="email"
               id="form3Example3"
@@ -65,14 +88,30 @@ export const SignUp = () => {
               value={password}
               placeholder="Enter password"
               onChange={handleInputValue}
+              onKeyUp={handleProgress}
             />
-
+            <MDBProgress>
+              <MDBProgressBar
+                bgColor="success"
+                width={(complexity / regExps.length) * 100}
+                valuemin={0}
+                valuemax={regExps.length}
+              />
+            </MDBProgress>
+            {/* <p>
+              complexity{complexity} reg {regExps.length}
+            </p>
+            <progress value={complexity} max={regExps.length}></progress> */}
             <MDBCheckbox
               wrapperClass="d-flex justify-content-center mb-4"
               id="form3Example5"
               label="Subscribe to our newsletter"
               defaultChecked
             />
+            <p>{emailError}</p>
+            <p>{loginError}</p>
+            <p>{firstNameError}</p>
+            <p>{lastNameError}</p>
 
             <MDBBtn type="submit" className="mb-4" block>
               Sign up
@@ -103,6 +142,7 @@ export const SignUp = () => {
           </form>
         </div>
       </div>
+
       <Footer />
     </div>
   );

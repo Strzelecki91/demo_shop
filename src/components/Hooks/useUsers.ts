@@ -13,6 +13,7 @@ type useUserData = {
   loginError: string;
   firstNameError: string;
   lastNameError: string;
+  passwordError: string;
   newUserInputValue: usersType;
   complexity: number;
   regExps: RegExp[];
@@ -42,6 +43,7 @@ export const useUsers = (): useUserData => {
   const [loginError, setLoginError] = useState("");
   const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [complexity, setComplexity] = useState(0);
 
   const { firstName, lastName, login, email, password } = newUserInputValue;
@@ -142,7 +144,7 @@ export const useUsers = (): useUserData => {
     }
     return true;
   };
-  const regExps = [/[a-z]/, /[A-Z]/, /[0-9]/, /.{8}/];
+  const regExps = [/[a-z]/, /[A-Z]/, /[0-9]/, /.{8}/, /[!-//:-@[-`{-ÿ]/];
   const calculateComplexityPassword = (password: string) => {
     let complexity = 1;
 
@@ -157,6 +159,7 @@ export const useUsers = (): useUserData => {
     };
   };
   console.log(regExps.length, complexity, " długosć tablicy hasła");
+
   const handleProgress = (event: KeyboardEvent<HTMLInputElement>) => {
     event.preventDefault();
     calculateComplexityPassword(password);
@@ -199,7 +202,7 @@ export const useUsers = (): useUserData => {
       setLoginError("password is too weak");
     }
     if (complexity < regExps.length) {
-      setLoginError("Password too weak");
+      setPasswordError("Password too weak");
       return;
     }
     const newUser = await addUser();
@@ -213,6 +216,10 @@ export const useUsers = (): useUserData => {
       password: "",
     });
     setEmailError("");
+    setLoginError("");
+    setFirstNameError("");
+    setLastNameError("");
+    setComplexity(0);
   };
   const handleInputValue = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -232,6 +239,7 @@ export const useUsers = (): useUserData => {
     loginError,
     firstNameError,
     lastNameError,
+    passwordError,
     complexity,
     regExps,
     handleNewUser,

@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import { Header } from "./components/Header";
 import { LeftSide } from "./components/LeftSide";
@@ -13,6 +13,8 @@ import { SignUp } from "./pages/SignUp";
 import { UserProvider } from "./components/context/UserContext";
 
 function App() {
+  const isAuthenticated = !!localStorage.getItem("accessToken");
+  console.log(isAuthenticated, "ma autentykację");
   return (
     <UserProvider>
       <ProductProvider>

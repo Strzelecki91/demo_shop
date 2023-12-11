@@ -8,6 +8,8 @@ import {
 } from "mdb-react-ui-kit";
 
 import "./productCard.scss";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 type productCardProps = {
   id: number;
   title: string;
@@ -28,6 +30,7 @@ export const ProductCard = ({
   category,
   images,
 }: productCardProps) => {
+  const { token } = useContext(UserContext);
   return (
     <>
       {/* <MDBCard>
@@ -47,9 +50,27 @@ export const ProductCard = ({
         <MDBBtn color="light" rippleColor="dark">
           Details
         </MDBBtn>
-        <MDBBtn color="light" rippleColor="dark">
-          Add to Cart
-        </MDBBtn>
+        {token ? (
+          <MDBBtn color="light" rippleColor="dark">
+            Add to Cart
+          </MDBBtn>
+        ) : (
+          <MDBBtn color="light" rippleColor="dark" disabled>
+            Add to Cart
+          </MDBBtn>
+        )}
+        {/* <li className="nav__item">
+          <img src={"/assets/list.png"} alt="icon of employess list" />
+          {token ? (
+            <NavLink className="nav__link" to={"/employees"} end>
+              {t("employeeList")}
+            </NavLink>
+          ) : (
+            <button className="nav__inactive" disabled>
+              {t("employeeList")}
+            </button>
+          )}
+        </li> */}
       </div>
     </>
   );

@@ -11,6 +11,7 @@ import { Home } from "./pages/Home";
 import { LoginPage } from "./pages/LoginPage";
 import { SignUp } from "./pages/SignUp";
 import { UserProvider } from "./components/context/UserContext";
+import { UserPage } from "./pages/UserPage";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("accessToken");
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<SignUp />} />
+            <Route path="/userInformation" element={<UserPage />} />
           </Routes>
         </div>
       </ProductProvider>

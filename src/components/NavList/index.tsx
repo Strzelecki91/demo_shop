@@ -102,7 +102,7 @@ export const NavList = () => {
           <div>
             {token ? (
               <div>
-                <a href={"/"}>
+                <a href={"/userInformation"}>
                   <MDBIcon fab icon="bity" /> {""}
                   {user.login}{" "}
                 </a>

@@ -6,6 +6,7 @@ import {
   KeyboardEvent,
 } from "react";
 import { usersType } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 type useUserData = {
   users: usersType[];
@@ -21,6 +22,8 @@ type useUserData = {
   };
   complexity: number;
   regExps: RegExp[];
+  token: string | null;
+  user: any;
   addUser: () => Promise<any>;
   handleNewUser: (
     event: React.FormEvent<HTMLFormElement>,
@@ -38,7 +41,7 @@ export const useUsers = (): useUserData => {
   const [users, setUsers] = useState<usersType[]>([]);
   const [countUsers, setCountUsers] = useState(users.length);
   const URL = "http://localhost:5000/users";
-  const URL_Login = "http://localhost:5000/auth/login";
+  const URL_Login = "http://localhost:5000/login";
   const [newUserInputValue, setNewUserInputValue] = useState<usersType>({
     id: countUsers,
     firstName: "",
@@ -62,7 +65,7 @@ export const useUsers = (): useUserData => {
 
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<any | null>(null);
-
+  const navigate = useNavigate();
   const saveTokenToLocalStorage = (token: any) => {
     localStorage.setItem("accessToken", token);
   };
@@ -267,19 +270,21 @@ export const useUsers = (): useUserData => {
   //     if (!response.ok) throw new Error("Something goes wrong with login");
   //     const data = await response.json();
 
-  //     console.log("Login successfull", data.email);
-  //     // setToken(data.accessToken);
+  //     console.log("Login successfull", data);
+  //     setToken(data.accessToken);
   //     // saveTokenToLocalStorage(user.accessToken);
+  //     console.log(user, "user");
   //   } catch (error) {
   //     console.log(error);
   //   }
   // };
-  // loginUser("example@test.pl", "Kotek12-");
+  // loginUser("strzal@wp.pl", "Kotecek12-");
 
   const handleLogin = async (email: string, password: string) => {
     // const user = await loginUser(email, password);
     // console.log(user, "setuser handle login");
     // setUser(user);
+    // saveTokenToLocalStorage(user.accessToken);
     try {
       const response = await fetch(`${URL_Login}`, {
         method: "POST",
@@ -291,24 +296,40 @@ export const useUsers = (): useUserData => {
       });
       if (!response.ok) throw new Error("Something goes wrong with login");
       const data = await response.json();
-
-      console.log("Login successfull", data.email);
+      console.log("Login successfull", data);
       setToken(data.accessToken);
-      setUser(user);
-      saveTokenToLocalStorage(user.accessToken);
+      setUser(data.user);
+      localStorage.setItem("userData", JSON.stringify(data.user));
+      saveTokenToLocalStorage(data.accessToken);
+      console.log(localStorage, "zapisany token");
     } catch (error) {
       console.error("Error during login. Please try again.", error);
       throw new Error("Invalid credentials. Please try again.");
     }
   };
 
+  console.log(token, "pobrany token ze strony");
   const handleLogout = () => {
     removeTokenFromLocalStorage();
     setToken(null);
     setUser(null);
-    window.location.reload();
+    navigate("/");
   };
+  useEffect(() => {
+    const storedToken = getTokenFromLocalStorage();
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
+  useEffect(() => {
+    const storedUserData = localStorage.getItem("userData");
+    console.log(storedUserData, " sadasdsa");
+    if (storedUserData) {
+      setUser(JSON.parse(storedUserData));
+    }
+  }, []);
 
+  console.log(user, "pobrany user z logowania");
   useEffect(() => {
     getUser();
   }, []);
@@ -323,6 +344,8 @@ export const useUsers = (): useUserData => {
     complexity,
     regExps,
     loginInputValue,
+    token,
+    user,
     handleNewUser,
     handleInputValue,
     addUser,

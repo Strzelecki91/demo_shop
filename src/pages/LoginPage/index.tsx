@@ -17,7 +17,7 @@ export const LoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
-  const { handleLogin } = useContext(UserContext);
+  const { token, handleLogin, handleLogout } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -28,7 +28,7 @@ export const LoginPage: React.FC = () => {
       // window.location.reload();
       console.log("zalogowano", email, password);
     } catch (error: any) {
-      if (error.response && error.response.status === 401) {
+      if (error.response && error.response.status === 400) {
         setError("An error occurred. Please try again.");
       } else {
         console.error("Server error", error.message);
@@ -40,71 +40,90 @@ export const LoginPage: React.FC = () => {
   return (
     <div>
       <NavList />
-      <div className="box">
-        <p>{error}</p>
-        <div className="loginBox">
-          <form onSubmit={handleSubmit}>
-            <MDBInput
-              className="mb-4"
-              type="email"
-              id="form2Example1"
-              label="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <p>{email}</p>
-            <p>{password}</p>
-            <MDBInput
-              className="mb-4"
-              type="password"
-              id="form2Example2"
-              label="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+      {
+        <div className="box">
+          <div className="loginBox">
+            {!token ? (
+              <>
+                <form onSubmit={handleSubmit}>
+                  <MDBInput
+                    className="mb-4"
+                    type="email"
+                    id="form2Example1"
+                    label="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <p>{error}</p>
+                  <p>{email}</p>
+                  <p>{password}</p>
+                  <MDBInput
+                    className="mb-4"
+                    type="password"
+                    id="form2Example2"
+                    label="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
 
-            <MDBRow className="mb-4">
-              <MDBCol className="d-flex justify-content-center">
-                <MDBCheckbox
-                  id="form2Example3"
-                  label="Remember me"
-                  defaultChecked
-                />
-              </MDBCol>
-              <MDBCol>
-                <a href="#!">Forgot password?</a>
-              </MDBCol>
-            </MDBRow>
+                  <MDBRow className="mb-4">
+                    <MDBCol className="d-flex justify-content-center">
+                      <MDBCheckbox
+                        id="form2Example3"
+                        label="Remember me"
+                        defaultChecked
+                      />
+                    </MDBCol>
+                    <MDBCol>
+                      <a href="#!">Forgot password?</a>
+                    </MDBCol>
+                  </MDBRow>
 
-            <MDBBtn type="submit" className="mb-4" block>
-              Sign in
-            </MDBBtn>
+                  <MDBBtn type="submit" className="mb-4" block>
+                    Sign in
+                  </MDBBtn>
 
-            <div className="text-center">
-              <p>
-                Not a member? <a href="#!">Register</a>
-              </p>
-              <p>or sign up with:</p>
+                  <div className="text-center">
+                    <p>
+                      Not a member? <a href="#!">Register</a>
+                    </p>
+                    <p>or sign up with:</p>
 
-              <MDBBtn floating color="secondary" className="mx-1">
-                <MDBIcon fab icon="facebook-f" />
+                    <MDBBtn floating color="secondary" className="mx-1">
+                      <MDBIcon fab icon="facebook-f" />
+                    </MDBBtn>
+
+                    <MDBBtn floating color="secondary" className="mx-1">
+                      <MDBIcon fab icon="google" />
+                    </MDBBtn>
+
+                    <MDBBtn floating color="secondary" className="mx-1">
+                      <MDBIcon fab icon="twitter" />
+                    </MDBBtn>
+
+                    <MDBBtn floating color="secondary" className="mx-1">
+                      <MDBIcon fab icon="github" />
+                    </MDBBtn>
+                  </div>
+                </form>
+              </>
+            ) : (
+              <MDBBtn
+                type="button"
+                className="mb-4"
+                block
+                onClick={handleLogout}
+              >
+                Logout
               </MDBBtn>
 
-              <MDBBtn floating color="secondary" className="mx-1">
-                <MDBIcon fab icon="google" />
-              </MDBBtn>
-
-              <MDBBtn floating color="secondary" className="mx-1">
-                <MDBIcon fab icon="twitter" />
-              </MDBBtn>
-
-              <MDBBtn floating color="secondary" className="mx-1">
-                <MDBIcon fab icon="github" />
-              </MDBBtn>
-            </div>
-          </form>
+              // <button className="Login__button" onClick={handleLogout}>
+              //   Logout
+              // </button>
+            )}
+          </div>
         </div>
-      </div>
+      }
       <Footer />
     </div>
   );

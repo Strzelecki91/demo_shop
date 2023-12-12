@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -20,8 +20,12 @@ import {
   MDBBadge,
 } from "mdb-react-ui-kit";
 import "./navList.scss";
+import { UserContext } from "../context/UserContext";
 export const NavList = () => {
   const [openBasic, setOpenBasic] = useState(false);
+  const { user, token } = useContext(UserContext);
+
+  // console.log(user.login);
   useEffect(() => {
     setOpenBasic(Boolean);
   }, [openBasic]);
@@ -80,21 +84,34 @@ export const NavList = () => {
                 <MDBNavbarLink href="/login">Login</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="/register">Sign up</MDBNavbarLink>
+                <MDBNavbarLink href="/register">Sign{""}up</MDBNavbarLink>
               </MDBNavbarItem>
-              {/* <div className="width_search_input">
-                <form className="d-flex input-group w-auto">
-                  <input
-                    type="search"
-                    className="form-control"
-                    placeholder="Type query"
-                    aria-label="Search"
-                  />
-                  <MDBBtn color="primary">Search</MDBBtn>
-                </form>
-              </div> */}
             </MDBNavbarNav>
           </MDBCollapse>
+          <div className="width_search_input">
+            <form className="d-flex input-group w-auto">
+              <input
+                type="search"
+                className="form-control"
+                placeholder="Type query"
+                aria-label="Search"
+              />
+              <MDBBtn color="primary">Search</MDBBtn>
+            </form>
+          </div>
+          <div>
+            {token ? (
+              <div>
+                <a href={"/"}>
+                  <MDBIcon fab icon="bity" /> {""}
+                  {user.login}{" "}
+                </a>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
+          {/* <div>{user.login} </div> */}
         </MDBContainer>
       </MDBNavbar>
     </div>

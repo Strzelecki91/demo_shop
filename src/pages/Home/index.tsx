@@ -4,8 +4,11 @@ import { LeftSide } from "../../components/LeftSide";
 import { NavList } from "../../components/NavList";
 import { ProductsList } from "../../components/ProductsList";
 import { MDBRow, MDBCol } from "mdb-react-ui-kit";
+import { UserContext } from "../../components/context/UserContext";
+import { useContext } from "react";
 
 export const Home = () => {
+  const { user } = useContext(UserContext);
   return (
     <div>
       <div>

@@ -64,7 +64,6 @@
       "images": "https://zbitaszybka.pl/wp-content/uploads/2020/01/iphone-9-2020-1024x576.jpg.webp"
     }
   ],
-
   "users": [
     {
       "id": 1,
@@ -113,6 +112,22 @@
       "lastName": "Strzelecki",
       "login": "Valandilll",
       "id": 6
+    },
+    {
+      "email": "strzal@wp.pl",
+      "password": "$2a$10$F6mkcKTvGQpOryRl/fwT.OJPX3Fvt.N0yTlzvTfhhu/AS6E9o8v7i",
+      "firstName": "Kacper",
+      "lastName": "Strzaalaaa",
+      "login": "strzal",
+      "id": 7
+    },
+    {
+      "email": "eret@wp.pl",
+      "password": "$2a$10$i8/LUrG75a2VH6wRbrmxmOeKQwLX.4bd/CoNHLymHGqOW7ldyRf2q",
+      "firstName": "John",
+      "lastName": "Eret",
+      "login": "Eret",
+      "id": 8
     }
   ]
 }

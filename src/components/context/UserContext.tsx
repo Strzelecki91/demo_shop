@@ -24,6 +24,8 @@ type UsersContextProps = {
   passwordError: string;
   complexity: number;
   regExps: RegExp[];
+  token: string | null;
+  user: any;
   addUser: () => Promise<any>;
   handleInputValue: (event: ChangeEvent<HTMLInputElement>) => void;
   handleNewUser: (
@@ -56,6 +58,8 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     regExps,
     passwordError,
     loginInputValue,
+    token,
+    user,
     addUser,
     handleNewUser,
     handleInputValue,
@@ -78,6 +82,8 @@ export const UserProvider = ({ children }: UserProviderProps) => {
         regExps,
         passwordError,
         loginInputValue,
+        token,
+        user,
         addUser,
         handleNewUser,
         handleInputValue,

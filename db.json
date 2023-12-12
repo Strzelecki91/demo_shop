@@ -120,6 +120,14 @@
       "lastName": "Strzaalaaa",
       "login": "strzal",
       "id": 7
+    },
+    {
+      "email": "eret@wp.pl",
+      "password": "$2a$10$i8/LUrG75a2VH6wRbrmxmOeKQwLX.4bd/CoNHLymHGqOW7ldyRf2q",
+      "firstName": "John",
+      "lastName": "Eret",
+      "login": "Eret",
+      "id": 8
     }
   ]
 }

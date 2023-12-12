@@ -84,32 +84,34 @@ export const NavList = () => {
                 <MDBNavbarLink href="/login">Login</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="/register">Sign up</MDBNavbarLink>
+                <MDBNavbarLink href="/register">Sign{""}up</MDBNavbarLink>
               </MDBNavbarItem>
-
-              <MDBNavbarItem>
-                {" "}
-                {!token ? (
-                  <MDBNavbarLink href="/#" disabled>
-                    zaloguj się
-                  </MDBNavbarLink>
-                ) : (
-                  <MDBNavbarLink href="/#">{user.login}</MDBNavbarLink>
-                )}
-              </MDBNavbarItem>
-              {/* <div className="width_search_input">
-                <form className="d-flex input-group w-auto">
-                  <input
-                    type="search"
-                    className="form-control"
-                    placeholder="Type query"
-                    aria-label="Search"
-                  />
-                  <MDBBtn color="primary">Search</MDBBtn>
-                </form>
-              </div> */}
             </MDBNavbarNav>
           </MDBCollapse>
+          <div className="width_search_input">
+            <form className="d-flex input-group w-auto">
+              <input
+                type="search"
+                className="form-control"
+                placeholder="Type query"
+                aria-label="Search"
+              />
+              <MDBBtn color="primary">Search</MDBBtn>
+            </form>
+          </div>
+          <div>
+            {token ? (
+              <div>
+                <a href={"/"}>
+                  <MDBIcon fab icon="bity" /> {""}
+                  {user.login}{" "}
+                </a>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
+          {/* <div>{user.login} </div> */}
         </MDBContainer>
       </MDBNavbar>
     </div>

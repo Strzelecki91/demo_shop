@@ -5,6 +5,7 @@ import { UserContext } from "../../components/context/UserContext";
 import { useContext } from "react";
 
 import "./userPage.scss";
+import { Carusel } from "../../components/Carusel";
 export const UserPage = () => {
   const { user, token } = useContext(UserContext);
   return (

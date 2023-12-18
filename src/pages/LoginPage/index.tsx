@@ -13,6 +13,7 @@ import "./loginPage.scss";
 import { Footer } from "../../components/Footer";
 import { UserContext } from "../../components/context/UserContext";
 import { useNavigate } from "react-router-dom";
+import { Carusel } from "../../components/Carusel";
 export const LoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -124,6 +125,7 @@ export const LoginPage: React.FC = () => {
           </div>
         </div>
       }
+
       <Footer />
     </div>
   );

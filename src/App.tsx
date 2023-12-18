@@ -12,6 +12,7 @@ import { LoginPage } from "./pages/LoginPage";
 import { SignUp } from "./pages/SignUp";
 import { UserProvider } from "./components/context/UserContext";
 import { UserPage } from "./pages/UserPage";
+import { ProductList } from "./pages/ProductList";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("accessToken");
@@ -22,6 +23,7 @@ function App() {
         <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/shop" element={<ProductList />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<SignUp />} />
             <Route path="/userInformation" element={<UserPage />} />

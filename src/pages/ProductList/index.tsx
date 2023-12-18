@@ -1,14 +1,10 @@
-import { Footer } from "../../components/Footer";
-import { Header } from "../../components/Header";
-import { LeftSide } from "../../components/LeftSide";
+import { MDBCol, MDBRow } from "mdb-react-ui-kit";
 import { NavList } from "../../components/NavList";
+import { LeftSide } from "../../components/LeftSide";
 import { ProductsList } from "../../components/ProductsList";
-import { MDBRow, MDBCol } from "mdb-react-ui-kit";
-import { UserContext } from "../../components/context/UserContext";
-import { useContext } from "react";
-import { Carusel } from "../../components/Carusel";
+import { Footer } from "../../components/Footer";
 
-export const Home = () => {
+export const ProductList = () => {
   return (
     <div>
       <div>
@@ -19,7 +15,7 @@ export const Home = () => {
             <LeftSide />
           </MDBCol>
           <MDBCol lg="8">
-            <Carusel />
+            <ProductsList />
           </MDBCol>
           <MDBCol lg="2">
             <p>coś tu wsadzimy</p>

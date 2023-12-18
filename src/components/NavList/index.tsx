@@ -64,7 +64,7 @@ export const NavList = () => {
                 </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="#">Link</MDBNavbarLink>
+                <MDBNavbarLink href="/shop">Shop</MDBNavbarLink>
               </MDBNavbarItem>
 
               <MDBNavbarItem>

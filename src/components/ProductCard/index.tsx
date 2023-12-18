@@ -31,6 +31,7 @@ export const ProductCard = ({
   images,
 }: productCardProps) => {
   const { token } = useContext(UserContext);
+
   return (
     <>
       {/* <MDBCard>

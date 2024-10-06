@@ -1,4 +1,3 @@
-import React from "react";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import {
@@ -80,7 +79,7 @@ export const Footer = () => {
         className="text-center p-3"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
-        © 2020 Copyright:
+        © 2024 Copyright:
         <a className="text-white" href="https://mdbootstrap.com/">
           MDBootstrap.com
         </a>

@@ -10,6 +10,7 @@ import {
 import "./productCard.scss";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
+
 type productCardProps = {
   id: number;
   title: string;
@@ -30,8 +31,27 @@ export const ProductCard = ({
   category,
   images,
 }: productCardProps) => {
-  const { token } = useContext(UserContext);
-
+  const { token, user } = useContext(UserContext);
+  const URL = "http://localhost:5000";
+  const addToCart = async () => {
+    try {
+      const response = await fetch(`${URL}/cart`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: user.id,
+          productId: id,
+          title,
+          price,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       {/* <MDBCard>
@@ -52,7 +72,7 @@ export const ProductCard = ({
           Details
         </MDBBtn>
         {token ? (
-          <MDBBtn color="light" rippleColor="dark">
+          <MDBBtn color="light" rippleColor="dark" onClick={addToCart}>
             Add to Cart
           </MDBBtn>
         ) : (

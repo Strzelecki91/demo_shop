@@ -13,6 +13,7 @@ import { SignUp } from "./pages/SignUp";
 import { UserProvider } from "./components/context/UserContext";
 import { UserPage } from "./pages/UserPage";
 import { ProductList } from "./pages/ProductList";
+import { CartPage } from "./pages/CartPage";
 
 function App() {
   const isAuthenticated = !!localStorage.getItem("accessToken");
@@ -27,6 +28,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<SignUp />} />
             <Route path="/userInformation" element={<UserPage />} />
+            <Route path="/cart" element={<CartPage />} />
           </Routes>
         </div>
       </ProductProvider>

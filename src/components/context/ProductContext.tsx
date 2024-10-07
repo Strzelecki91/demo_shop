@@ -11,10 +11,22 @@ export type productsListType = {
   category: string;
   images: string;
 };
+export type cartListType = {
+  userId: number;
+  productId: number;
+  title: string;
+  description: string;
+  price: number;
+  stock: number;
+  category: string;
+};
 
 type ProductsContextProps = {
   productsList: productsListType[];
   getProducts: () => Promise<void>;
+  cartList: cartListType[];
+  setCartList: React.Dispatch<React.SetStateAction<cartListType[]>>;
+  getCartList: () => Promise<void>;
 };
 
 type ProductProviderProps = {
@@ -25,12 +37,17 @@ export const ProductContext = createContext<ProductsContextProps>(
 );
 
 export const ProductProvider = ({ children }: ProductProviderProps) => {
-  const { productsList, getProducts } = useProducts();
+  const { productsList, cartList, getProducts, setCartList, getCartList } =
+    useProducts();
   return (
     <ProductContext.Provider
       value={{
         productsList,
+        cartList,
         getProducts,
+
+        setCartList,
+        getCartList,
       }}
     >
       {children}

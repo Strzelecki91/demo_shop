@@ -129,5 +129,93 @@
       "login": "Eret",
       "id": 8
     }
+  ],
+  "cart": [
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 1
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 2
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 3
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 4
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 5
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 6
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 7
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 8
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 9
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 10
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 11
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 12
+    },
+    {
+      "userId": 7,
+      "productId": 2,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 13
+    },
+    {
+      "userId": 7,
+      "productId": 2,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 14
+    }
   ]
 }

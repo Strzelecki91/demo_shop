@@ -35,7 +35,7 @@ export const NavList = () => {
         <MDBContainer fluid>
           <MDBNavbarNav>
             <MDBNavbarItem>
-              <MDBNavbarLink href="#">
+              <MDBNavbarLink href="/cart">
                 <MDBBadge pill color="danger">
                   !
                 </MDBBadge>

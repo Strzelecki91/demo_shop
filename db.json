@@ -1,0 +1,221 @@
+{
+  "config": {
+    "auth": "/auth"
+  },
+  "products": [
+    {
+      "id": 1,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "images": "https://cdn.pixabay.com/photo/2022/03/21/20/50/iphone-mockup-7083928_1280.png"
+    },
+    {
+      "id": 2,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "images": "https://cdn.pixabay.com/photo/2022/03/21/20/50/iphone-mockup-7083928_1280.png"
+    },
+    {
+      "id": 3,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "images": "https://cdn.pixabay.com/photo/2022/03/21/20/50/iphone-mockup-7083928_1280.png"
+    },
+    {
+      "id": 4,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "images": "https://cdn.pixabay.com/photo/2022/03/21/20/50/iphone-mockup-7083928_1280.png"
+    },
+    {
+      "id": 5,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "images": "https://cdn.pixabay.com/photo/2022/03/21/20/50/iphone-mockup-7083928_1280.png"
+    },
+    {
+      "id": 6,
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "images": "https://cdn.pixabay.com/photo/2022/03/21/20/50/iphone-mockup-7083928_1280.png"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Kowalski",
+      "lastName": "John",
+      "login": "Johan",
+      "email": "example@test.com",
+      "password": "Kotek12-"
+    },
+    {
+      "firstName": "asdasd",
+      "lastName": "asasd",
+      "login": "asdasd",
+      "email": "asdasdasdasd@wp.pl",
+      "password": "asda2wX!",
+      "id": 2
+    },
+    {
+      "firstName": "Kacper",
+      "lastName": "Strzala",
+      "login": "Strzla",
+      "email": "strzla@gmail.vom",
+      "password": "Kotek12-",
+      "id": 3
+    },
+    {
+      "firstName": "Sheldonyu",
+      "lastName": "sdfgsdfg",
+      "login": "Valandil",
+      "email": "asdasd@wp.pl",
+      "password": "Kotek12-",
+      "id": 4
+    },
+    {
+      "firstName": "Sheldonyu",
+      "lastName": "Strzelecki",
+      "login": "Valandill",
+      "email": "exfdgdgample@test.com",
+      "password": "Kotek12-",
+      "id": 5
+    },
+    {
+      "email": "exambfcvple@test.com",
+      "password": "$2a$10$sVqucLtw8w5WRKKwX8Q8sezneL7ZebiGx/9kt2dCPgS58i22BOt2O",
+      "firstName": "Kacper",
+      "lastName": "Strzelecki",
+      "login": "Valandilll",
+      "id": 6
+    },
+    {
+      "email": "strzal@wp.pl",
+      "password": "$2a$10$F6mkcKTvGQpOryRl/fwT.OJPX3Fvt.N0yTlzvTfhhu/AS6E9o8v7i",
+      "firstName": "Kacper",
+      "lastName": "Strzaalaaa",
+      "login": "strzal",
+      "id": 7
+    },
+    {
+      "email": "eret@wp.pl",
+      "password": "$2a$10$i8/LUrG75a2VH6wRbrmxmOeKQwLX.4bd/CoNHLymHGqOW7ldyRf2q",
+      "firstName": "John",
+      "lastName": "Eret",
+      "login": "Eret",
+      "id": 8
+    }
+  ],
+  "cart": [
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 1
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 2
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 3
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 4
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 5
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 6
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 7
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 8
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 9
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 10
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 11
+    },
+    {
+      "userId": 7,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 12
+    },
+    {
+      "userId": 7,
+      "productId": 2,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 13
+    },
+    {
+      "userId": 7,
+      "productId": 2,
+      "title": "iPhone 9",
+      "price": 549,
+      "id": 14
+    }
+  ]
+}

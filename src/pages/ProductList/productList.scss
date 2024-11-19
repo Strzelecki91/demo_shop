@@ -1,0 +1,20 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Zapewnia, że strona wypełnia całą wysokość ekranu */
+}
+
+.content {
+  flex: 1; /* Zajmuje pozostałą przestrzeń pomiędzy nav a footerem */
+}
+footer {
+  background-color: #f8f9fa;
+
+  text-align: center;
+}
